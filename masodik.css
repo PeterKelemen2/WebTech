@@ -1,0 +1,29 @@
+*{
+	box-sizing: border-box;
+}
+
+.main-container{
+	width:300px;
+	background-color: rgb(200,200,200);
+	padding:20px;
+	margin:8px 0;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.container{
+	margin-top: 5px 
+	margin-bottom: 10px;
+	background-color: rgb(232,232,232);
+	padding: 10px 5px;
+	width: 223px;
+	border-radius:10px;
+}
+
+input[type=text]{
+	padding: 12px 20px;
+	margin: 8px 0;
+	border:1px solid #ccc;
+	border-radius: 4px; 
+}
+
