@@ -1,0 +1,35 @@
+*{
+	box-sizing: border-box;
+}
+
+
+h1{
+	text-align:center;
+}
+.nav-bar{
+
+	background-color : #004735;
+	display:flex;
+	flex-direction: row;
+	height: 50px;
+	justify-content:space-around;
+	align_items:center;
+	
+}
+
+.nav-bar >div{
+	
+	width:120 px;
+
+}
+.nav-bar > div>a {
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+
+.nav-bar> div>a:hover {
+	color: blue;
+}

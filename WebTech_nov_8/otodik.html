@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Tanulmányi rendszer </title>
+<link rel="stylesheet" href="negyedik.css">
+<link rel="stylesheet" href="negyedik_2.css">
+
+<script>
+	let courses = new Array(10);
+	courses[0] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[1] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[2] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[3] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[4] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[5] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[6] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[7] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[8] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+	courses[9] = {name: "Programozás", credit: 6, semester: 2, type: "kollokvium", code: "ABC123"}; 
+
+	function createTable(){
+		// meg kell keresni a HTML elemet
+		// 1. document.getElementbyId(Id): ID alapján keres
+		// 1. document.getElementbyClassName(class): Class alapján keres
+		// 2. document.querySelector(selector): CSS Selector
+
+		let table = document.querySelector(".courses-table"); // visszaad egy HMTL elemet
+		console.log(table);
+
+		courses.foreach( (course) => { // sír a szája, hogy nem function
+			let row = document.createElement("tr"); // létrehozunk egy HTML elemet
+			let name = document.createElement("td");
+			let credit = document.createElement("td");
+			let semester = document.createElement("td");
+			let type = document.createElement("td");
+			let code = document.createElement("td");
+
+			name.appendChild(document.createTextNode(course.name));
+			credit.appendChild(document.createTextNode(course.credit));
+			semester.appendChild(document.createTextNode(course.semester));
+			type.appendChild(document.createTextNode(course.type));
+			code.appendChild(document.createTextNode(course.code));
+
+			// A létrehozott tr elemhez adjuk hozzá a td elemeket (appendChild)
+			row.appendChild(name);
+			row.appendChild(credit);
+			row.appendChild(semester);
+			row.appendChild(type);
+			row.appendChild(code);
+
+			table.appendChild(row);
+			
+			} 
+		); 
+		// Lambda kifejezét vár: egy név nélküli függvény. Alakja: 
+
+	}
+
+</script>
+
+
+</head>
+
+<body bgcolor="AliceBlue" onload="createTable()">
+
+<h1> Üdvözöljük a fake IK honlapján </h>
+
+<div class="nav-bar">
+	<div><a href = "szakok.html">Szakok</a></div>
+	<div><a href = "szakok.html">Tárgyak</a></div>
+	<div><a href = "szakok.html">Oktatók</a></div>
+	<div><a href = "szakok.html">Események</a></div>
+	<div><a href = "szakok.html">Hírek</a></div>
+	<div><a href = "szakok.html">Egyéb</a></div>
+</div>
+
+<div class = "courses-table">
+	<table>
+		<tr>
+		    <th>Név</th>
+		    <th>Kredit</th>
+		    <th>Ajánlott szemeszter</th>
+		    <th>Tipus</th>
+		    <th>Tárgykód</th>
+	  	</tr>	
+		<tr>
+			<td> Programozás 1 </td>
+			<td> 6</td>
+			<td> 1</td>
+			<td> Kollokvium </td>
+			<td> ABC123 </td>
+		</tr>	
+		<tr>
+			<td> Programozás 2  </td>
+			<td> 6 </td>
+			<td> 2 </td>
+			<td> Kollokvium </td>
+			<td> ABC123 </td>
+		</tr>
+		<tr>
+			<td> Képfeldolgozás </td>
+			<td> 6 </td>
+			<td> 2 </td>
+			<td> Kollokvium </td>
+			<td> ABC123 </td>
+		</tr>	
+		<tr>
+			<td> Webtechnológiák  </td>
+			<td> 6 </td>
+			<td> 2 </td>
+			<td> Kollokvium </td>
+			<td> ABC123 </td>
+		</tr>
+		<tr>
+			<td> Alk. Stat.  </td>
+			<td> 6 </td>
+			<td> 5 </td>
+			<td> Kollokvium </td>
+			<td> ABC123 </td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>
