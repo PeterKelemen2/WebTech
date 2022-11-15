@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	background-color: #004735;
+	padding-left: 0;
+}
+
+li {
+	width: 150px;
+	display: inline-block;
+	margin: 5px 10px;
+	text-align: center;
+}
+
+li > a {
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+li > a:hover {
+	color: lightskyblue;
+}
+
+	

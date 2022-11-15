@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tanulmányi Rendszer</title>
+<link rel="stylesheet" href="tanulmanyi_rendszer_flex.css">
+<link rel="stylesheet" href="targyak.css">
+<!-- https://www.w3schools.com/js/default.asp -->
+
+<script>
+
+	let courses = new Array(10);
+	courses[0] = {name: "Programozás 1", credit: 6, semester: 2, type: "Gyakorlati jegy", code: "ABC123"};
+	courses[1] = {name: "Programozás 2", credit: 6, semester: 3, type: "Gyakorlati jegy", code: "ABC124"};
+	courses[2] = {name: "Programozás 3", credit: 6, semester: 4, type: "Kollokvium", code: "ABC125"};
+	courses[3] = {name: "Kalkulus 1", credit: 6, semester: 1, type: "Gyakorlati jegy", code: "ABC126"};
+	courses[4] = {name: "Kalkulus 2", credit: 6, semester: 2, type: "Gyakorlati jegy", code: "ABC127"};
+	courses[5] = {name: "Logika", credit: 6, semester: 1, type: "Kollokvium", code: "ABC123"};
+	courses[6] = {name: "Diszkrét matematika", credit: 6, semester: 1, type: "Gyakorlati jegy", code: "ABC123"};
+	courses[7] = {name: "Programozás 1", credit: 6, semester: 2, type: "Gyakorlati jegy", code: "ABD123"};
+	courses[8] = {name: "Programozás 1", credit: 6, semester: 2, type: "Kollokvium", code: "ABC123"};
+	courses[9] = {name: "Programozás 1", credit: 6, semester: 2, type: "Gyakorlati jegy", code: "ABC123"};
+	
+	function createTable() {
+		
+		//meg kell keresni a táblázat HTML elemet
+		//Keresni lehet:
+		//1. document.getElementById(id): ID alapján keresni
+		//2. document.getElementByClassName(class): CSS class név alapján keresni
+		//3. document.querySelector(selector): CSS selector
+		let table = document.querySelector(".courses--table"); //visszaad egy HTML elemet.
+		//console.log(table);
+		
+		//Lambda kifejezést vár: egy név nélküli függvény. Alakja: (paraméterek) => { utasítások;} 
+		courses.forEach( (course) => { //a course a "ciklusváltozó"
+			let row = document.createElement("tr"); //létrehozunk egy tr HTML elemet.
+			//hozzuk létre a megfelelő cellákat (td) és hozzá az értékeket.
+			let name = document.createElement("td");
+			let credit = document.createElement("td");
+			let semester = document.createElement("td");
+			let type = document.createElement("td");
+			let code = document.createElement("td");
+			
+			//a name td-hez adjunk hozzá egy TextNode gyereket
+			name.appendChild(document.createTextNode(course.name));
+			
+			credit.appendChild(document.createTextNode(course.credit));
+			semester.appendChild(document.createTextNode(course.semester));
+			type.appendChild(document.createTextNode(course.type));
+			code.appendChild(document.createTextNode(course.code));
+			
+			//a létrehozott tr elemhez adjuk hozzá a td elemeket
+			row.appendChild(name);
+			row.appendChild(credit);
+			row.appendChild(semester);
+			row.appendChild(type);
+			row.appendChild(code);
+			
+			//adjuk hozzá a sort a táblázathoz
+			table.appendChild(row);
+			
+		}); 
+	}
+	
+	//Lambda kifejezéssel (arrow function)
+	const getAverageCredit = () => {
+		const selectedSemester = document.querySelector(".container input").value;
+		let sum = 0;
+		let count = 0;
+		console.log("selectedSemester: " + selectedSemester);
+		
+		courses.forEach((course) => {
+		    console.log("selectedSemester: " + selectedSemester + " semester: " + course.semester);
+			if(course.semester == selectedSemester){
+				sum += course.credit;
+				count++;
+			}
+		});
+		let avgCredit = sum / count;
+		document.getElementById("credit--avg").innerHTML = "Átlagos kredit: " + avgCredit;
+	}
+
+</script>
+
+
+</head>
+<body onload="createTable()">
+
+<h1>Üdvözöljük a Debreceni Egyetem Informatikai Kar honlapján</h1>
+
+<div class="nav-bar"> <!--  ez lesz a flex-container div -->
+	<div><a href="szakok.html">Szakok</a></div>
+	<div><a href="szakok.html">Tárgyak</a></div>
+	<div><a href="szakok.html">Oktatók</a></div>
+	<div><a href="szakok.html">Események</a></div>
+	<div><a href="szakok.html">Hírek</a></div>
+	<div><a href="szakok.html">Egyéb</a></div>
+</div>	
+
+<table class="courses--table">
+  <tr>
+    <th>Név</th>
+    <th>Kredit</th>
+    <th>Ajánlott szemeszter</th>
+	<th>Típus</th>
+	<th>Tárgykód</th>
+  </tr>
+</table>
+
+<div>Statisztika</div>
+<div id="credit--avg">Átlagos kredit: </div>
+<div class="container">
+	<div>Szemeszter: </div>
+	<input type="number" />
+	<button type="button" onclick="getAverageCredit()">Átlagos kredit</button>
+</div>
+
+</body>
+</html>

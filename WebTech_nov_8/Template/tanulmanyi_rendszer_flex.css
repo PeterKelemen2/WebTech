@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
+}
+
+.nav-bar {
+	background-color: #004735;
+	height: 50px;
+	display: flex; /*flex-box lett az elem*/
+	flex-direction: row; /*az elemek megjelenítésének irányát adja meg (sor vagy oszlop) */
+    justify-content: space-around; /* a főtengely mentén merre igazítsa az elemeket (a főtengely mindig a flex-direction értékének megfelelő tengely lesz) */
+    align-items: center; /* a melléktengely mentén merre igazítsa az elemeket (a melléktengely mindig a flex-direction értékével ellentétes irányú tengely lesz) */
+}
+
+.nav-bar a {  /*ekvivalens a következővel: .nav-bar > div > a*/
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.nav-bar a:hover {
+	color: lightskyblue;
+}
+	
